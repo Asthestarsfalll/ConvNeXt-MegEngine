@@ -13,7 +13,7 @@ def main(torch_name):
     url = model_urls[torch_name]
     torch_state_dict = torch.hub.load_state_dict_from_url(url=url, map_location="cpu", check_hash=True)['model']
     new_dict = {}
-    model = convnext_tiny()
+    # model = convnext_tiny()
     s = model.state_dict()
 
     for k, v in torch_state_dict.items():
@@ -24,7 +24,7 @@ def main(torch_name):
             data = np.expand_dims(data, 1)
         new_dict[k] = data
 
-    model.load_state_dict(new_dict)
+    # model.load_state_dict(new_dict)
     os.makedirs('pretrained', exist_ok=True)
     mge.save(new_dict, os.path.join('pretrained', torch_name + '.pkl'))
 
