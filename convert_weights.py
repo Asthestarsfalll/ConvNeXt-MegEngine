@@ -26,14 +26,17 @@ def main(torch_name):
 
     model.load_state_dict(new_dict)
     os.makedirs('pretrained', exist_ok=True)
-    mge.save(new_dict, "./pretrained/convnext_tiny_1k_224_ema.pkl")
+    mge.save(new_dict, os.path.join('pretrained', torch_name + '.pkl'))
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "-m",
         "--model",
-        help="which model to convert from torch to megengine",
+        type=str,
+        default='convnext_tiny_1k',
+        help=f"which model to convert from torch to megengine, default: convnext_tiny_1k, optional: {list(model_urls.keys())}",
     )
     args = parser.parse_args()
     main(args.model)
