@@ -1,9 +1,6 @@
-import math
-
-import megengine as mge
+import cv2
 import megengine.data as data
 import megengine.data.transform as T
-import megengine.optimizer as optim
 
 
 class AverageMeter(object):

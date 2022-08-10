@@ -14,7 +14,7 @@ logging = mge.logger.get_logger()
 
 model_mapper = {
     "tiny": convnext_tiny,
-    "samll": convnext_samll,
+    "samll": convnext_small,
     "base": convnext_base,
     "large": convnext_large,
     "xlarge": convnext_xlarge,
